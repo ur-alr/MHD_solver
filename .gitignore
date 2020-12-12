@@ -1,0 +1,14 @@
+# for Windows
+Thumbs.db
+desktop.ini
+
+# for MacOS
+.DS_Store
+._*
+
+# ignore binary files
+a.out
+a.exe
+
+# ignore output files
+*csv
