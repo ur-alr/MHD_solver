@@ -1,4 +1,5 @@
 #include "mhd.hh"
+#include <chrono>
 
 int main() {
     // rho: 密度
@@ -58,6 +59,7 @@ int main() {
     // 計算開始
     size_t n = 0;
     double t = 0.0;
+    auto start = std::chrono::system_clock::now();
     while (t <= TL) {
         double lxmax = 0.0, lymax = 0.0;
         #pragma omp parallel for
@@ -168,10 +170,12 @@ int main() {
         }
         t += dt;
     }
+    auto elapsed_time = std::chrono::system_clock::now()-start;
+    std::cout << "elapsed_time: " << std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_time).count()/1000.0 << " s\n";
     // 計算終了
     // y = πでの値
     std::cout << "   x    rho      p      u      v      w     bx     by     bz    psi\n";
-    for (int i; i < XN; i += 5) {
+    for (int i = 0; i < XN; i += 5) {
         int j = YN/2;
         std::printf("%4.2f  %5.2f  %5.2f  %5.2f  %5.2f  %5.2f  %5.2f  %5.2f  %5.2f  %5.2f\n",
                     dx*i, rho[i][j], p[i][j], u[i][j], v[i][j], w[i][j], bx[i][j], by[i][j], bz[i][j], psi[i][j]);

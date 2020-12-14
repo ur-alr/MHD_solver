@@ -425,9 +425,6 @@ auto dqdt(const ndarray_t<double, XN, YN, VN> &q, double ch) {
     // x方向
     #pragma omp parallel for
     for (int i = 0; i < XN; i++) {
-        int ill = (i-2+XN)%XN;
-        int il = (i-1+XN)%XN;
-        int ir = (i+1)%XN;
         for (int j = 0; j < YN; j++) {
             //auto [ql, qr] = upwindx(q, i, j);
             //auto [ql, qr] = musclx(q, i, j);
@@ -441,9 +438,6 @@ auto dqdt(const ndarray_t<double, XN, YN, VN> &q, double ch) {
     // y方向
     #pragma omp parallel for
     for (int j = 0; j < YN; j++) {
-        int jll = (j-2+YN)%YN;
-        int jl = (j-1+YN)%YN;
-        int jr = (j+1)%YN;
         for (int i = 0; i < XN; i++) {
             //auto [ql, qr] = upwindy(q, i, j);
             //auto [ql, qr] = muscly(q, i, j);
