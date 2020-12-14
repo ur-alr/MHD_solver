@@ -15,6 +15,7 @@ cols = [cm.hot, cm.hot, cm.BrBG, cm.BrBG, cm.BrBG,
         cm.BrBG, cm.BrBG, cm.BrBG, cm.BrBG]
 for i in range(VN):
     plt.gcf().clear()
+    plt.axes().set_aspect("equal")
     data = np.loadtxt("../data/"+var[i]+"_{0:0>3}.csv".format(TN-1), delimiter = ",")
     im = plt.pcolor(x, y, data, cmap = cols[i])
     im.set_clim(mins[i], maxs[i])

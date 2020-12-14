@@ -496,6 +496,7 @@ def main():
               .format(dx*i, rho[i, j], p[i, j], u[i, j], v[i, j], w[i, j], bx[i, j], by[i, j], bz[i, j], psi[i, j]))
     # 結果をプロット
     fig = plt.figure()
+    plt.axes().set_aspect("equal")
     plt.title("p")
     plt.xlabel("X")
     plt.ylabel("Y")

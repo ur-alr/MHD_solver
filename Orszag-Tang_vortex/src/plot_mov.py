@@ -18,6 +18,7 @@ data1 = []
 for i in range(VN):
     def animate(n):
         plt.gcf().clear()
+        plt.axes().set_aspect("equal")
         data = np.loadtxt("../data/"+var[i]+"_{0:0>3}.csv".format(n), delimiter = ",")
         im = plt.pcolor(x, y, data, cmap = cols[i])
         im.set_clim(mins[i], maxs[i])
