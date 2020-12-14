@@ -131,7 +131,7 @@ int main() {
         }
         // ファイル出力
         if (static_cast<int>(t*PN/TL+1) != static_cast<int>((t-dt)*PN/TL+1)) {
-            printf("n: %3d, t: %.2f\n", n, t);
+            printf("n: %3lu, t: %.2f\n", n, t);
             const char *var[VN] = {"r", "p", "u", "v", "w", "bx", "by", "bz", "ps"};
             const char *dir = "../data/";
             char name[64][VN];

@@ -1,9 +1,9 @@
 #include "mhd.hh"
 
-constexpr double minmod(double a, double b) {
+double minmod(double a, double b) {
     return 0.5*(sign(a)+sign(b))*min(std::abs(a), std::abs(b));
 }
-constexpr double median(double a, double b, double c) {
+double median(double a, double b, double c) {
     return a+minmod(b-a, c-a);
 }
 auto hlldx(const ndarray_t<double, VN> &ql, const ndarray_t<double, VN> &qr, double ch) {

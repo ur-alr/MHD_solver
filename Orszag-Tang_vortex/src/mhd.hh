@@ -65,9 +65,9 @@ constexpr T sign(T a) {
     return a > 0 ? 1 : a < 0 ? -1 : 0;
 }
 // MINMOD関数
-constexpr double minmod(double a, double b);
+double minmod(double a, double b);
 // 中央値
-constexpr double median(double a, double b, double c);
+double median(double a, double b, double c);
 // HLLDリーマンソルバ (Miyoshi and Kusano, 2005)
 auto hlldx(const ndarray_t<double, VN> &ql, const ndarray_t<double, VN> &qr, double ch);
 auto hlldy(const ndarray_t<double, VN> &ql, const ndarray_t<double, VN> &qr, double ch);
