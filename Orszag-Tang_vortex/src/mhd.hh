@@ -14,7 +14,7 @@ constexpr size_t XN = 200, YN = 200;
 constexpr size_t PN = 100;
 // 保存変数の個数
 constexpr size_t VN = 9;
-// 掲載領域のサイズ
+// 計算領域のサイズ
 constexpr double XL = 2.0*M_PI, YL = 2.0*M_PI;
 constexpr double TL = M_PI;
 // グリッドサイズ
@@ -26,6 +26,7 @@ constexpr double gam = 5.0/3.0;
 // 磁場発散抑制のためのパラメータ (Dedner et al., 2002)
 constexpr double cr = 0.18;
 
+// 多次元配列
 template<typename T, size_t... N>
 struct ndarray;
 template<typename T>
