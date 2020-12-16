@@ -500,7 +500,7 @@ def main():
     plt.title("p")
     plt.xlabel("X")
     plt.ylabel("Y")
-    im = plt.pcolor(x, y, p.T, cmap = cm.hot, shading = "auto")
+    im = plt.pcolor(x, y, p.T, cmap = cm.jet, shading = "auto")
     im.set_clim(0.0, 8.0)
     fig.colorbar(im)
     plt.show()
