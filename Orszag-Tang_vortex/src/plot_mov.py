@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 XN = 200; YN = 200; TN = 100; VN = 9
-xl = np.pi; yl = np.pi; tl = np.pi
+xl = 2.0*np.pi; yl = 2.0*np.pi; tl = np.pi
 dx = xl/XN; dy = yl/YN; dt = tl/TN
 x = np.arange(0.0, xl, dx); y = np.arange(0.0, yl, dy); t = np.arange(0.0, tl, dt)
 fig = plt.figure()

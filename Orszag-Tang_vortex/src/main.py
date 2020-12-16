@@ -497,11 +497,11 @@ def main():
     # 結果をプロット
     fig = plt.figure()
     plt.axes().set_aspect("equal")
-    plt.title("p")
+    plt.title("p (t = {0:.2f})".format(t))
     plt.xlabel("X")
     plt.ylabel("Y")
     im = plt.pcolor(x, y, p.T, cmap = cm.jet, shading = "auto")
-    im.set_clim(0.0, 8.0)
+    im.set_clim(0.0, 6.5)
     fig.colorbar(im)
     plt.show()
 
