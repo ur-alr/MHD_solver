@@ -60,8 +60,8 @@ auto hlldx(const ndarray_t<double, VN> &ql, const ndarray_t<double, VN> &qr, dou
     double um = sm;
     double bxm = bxl+0.5*(bxr-bxl)-0.5/ch*(psir-psil);
     double psim = psil+0.5*(psir-psil)-0.5*ch*(bxr-bxl);
-    double ptm = ((sfr-ur)*rhor*ptl-(sfl-ul)*rhol*ptr+rhol*rhor*(sfr-ur)*(sfl-ul)*(ur-ul))/((sfr-ur)*rhor-(sfl-ul)*rhol);
     // リーマンファン外側
+    double ptm = ((sfr-ur)*rhor*ptl-(sfl-ul)*rhol*ptr+rhol*rhor*(sfr-ur)*(sfl-ul)*(ur-ul))/((sfr-ur)*rhor-(sfl-ul)*rhol);
     double rhoml = rhol*(sfl-ul)/(sfl-sm);
     double rhomr = rhor*(sfr-ur)/(sfr-sm);
     double vol = vl-bxm*byl*(sm-ul)/(rhol*(sfl-ul)*(sfl-sm)-bxm*bxm);
@@ -213,8 +213,8 @@ auto hlldy(const ndarray_t<double, VN> &ql, const ndarray_t<double, VN> &qr, dou
     double vm = sm;
     double bym = byl+0.5*(byr-byl)-0.5/ch*(psir-psil);
     double psim = psil+0.5*(psir-psil)-0.5*ch*(byr-byl);
-    double ptm = ((sfr-vr)*rhor*ptl-(sfl-vl)*rhol*ptr+rhol*rhor*(sfr-vr)*(sfl-vl)*(vr-vl))/((sfr-vr)*rhor-(sfl-vl)*rhol);
     // リーマンファン外側
+    double ptm = ((sfr-vr)*rhor*ptl-(sfl-vl)*rhol*ptr+rhol*rhor*(sfr-vr)*(sfl-vl)*(vr-vl))/((sfr-vr)*rhor-(sfl-vl)*rhol);
     double rhoml = rhol*(sfl-vl)/(sfl-sm);
     double rhomr = rhor*(sfr-vr)/(sfr-sm);
     double wol = wl-bym*bzl*(sm-vl)/(rhol*(sfl-vl)*(sfl-sm)-bym*bym);

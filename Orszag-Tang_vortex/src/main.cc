@@ -57,7 +57,7 @@ int main() {
         }
     }
     // 計算開始
-    size_t n = 0;
+    size_t step = 0, n = 0;
     double t = 0.0;
     auto start = std::chrono::system_clock::now();
     while (t <= TL) {
@@ -122,15 +122,6 @@ int main() {
                 }
             }
         }
-        // 計算失敗の検知
-        for (int i = 0; i < XN; i++) {
-            for (int j = 0; j < YN; j++) {
-                if (!std::isfinite(e[i][j])) {
-                    std::cout << "\nComputaion failed: \nn = " << n << "\ni = " << i << "\nj = " << j << "\n";
-                    exit(EXIT_FAILURE);
-                }
-            }
-        }
         // ファイル出力
         if (static_cast<int>(t*PN/TL+1) != static_cast<int>((t-dt)*PN/TL+1)) {
             printf("n: %3lu, t: %.2f\n", n, t);
@@ -169,10 +160,15 @@ int main() {
             n++;
         }
         t += dt;
+        step++;
     }
     auto elapsed_time = std::chrono::system_clock::now()-start;
     std::cout << "elapsed_time: " << std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_time).count()/1000.0 << " s\n";
     // 計算終了
+    // 計算失敗の検知
+    if (!std::isfinite(t)) {
+        std::cout << "Computaion failed: step = " << step << "\n";
+    }
     // y = πでの値
     std::cout << "   x    rho      p      u      v      w     bx     by     bz    psi\n";
     for (int i = 0; i < XN; i += 5) {

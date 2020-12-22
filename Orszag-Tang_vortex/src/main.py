@@ -109,8 +109,8 @@ def hlldx(ql, qr, ch):
     um = sm
     bxm = bxl+0.5*(bxr-bxl)-0.5/ch*(psir-psil)
     psim = psil+0.5*(psir-psil)-0.5*ch*(bxr-bxl)
-    ptm = ((sfr-ur)*rhor*ptl-(sfl-ul)*rhol*ptr+rhol*rhor*(sfr-ur)*(sfl-ul)*(ur-ul))/((sfr-ur)*rhor-(sfl-ul)*rhol)
     # リーマンファン外側
+    ptm = ((sfr-ur)*rhor*ptl-(sfl-ul)*rhol*ptr+rhol*rhor*(sfr-ur)*(sfl-ul)*(ur-ul))/((sfr-ur)*rhor-(sfl-ul)*rhol)
     rhoml = rhol*(sfl-ul)/(sfl-sm)
     rhomr = rhor*(sfr-ur)/(sfr-sm)
     vol = vl-bxm*byl*(sm-ul)/(rhol*(sfl-ul)*(sfl-sm)-bxm*bxm)
@@ -208,8 +208,8 @@ def hlldy(ql, qr, ch):
     vm = sm
     bym = byl+0.5*(byr-byl)-0.5/ch*(psir-psil)
     psim = psil+0.5*(psir-psil)-0.5*ch*(byr-byl)
-    ptm = ((sfr-vr)*rhor*ptl-(sfl-vl)*rhol*ptr+rhol*rhor*(sfr-vr)*(sfl-vl)*(vr-vl))/((sfr-vr)*rhor-(sfl-vl)*rhol)
     # リーマンファン外側
+    ptm = ((sfr-vr)*rhor*ptl-(sfl-vl)*rhol*ptr+rhol*rhor*(sfr-vr)*(sfl-vl)*(vr-vl))/((sfr-vr)*rhor-(sfl-vl)*rhol)
     rhoml = rhol*(sfl-vl)/(sfl-sm)
     rhomr = rhor*(sfr-vr)/(sfr-sm)
     wol = wl-bym*bzl*(sm-vl)/(rhol*(sfl-vl)*(sfl-sm)-bym*bym)
@@ -434,6 +434,7 @@ def main():
     # 計算開始
     n = 0
     t = 0.0
+    step = 0
     start = time.time()
     while (t <= TL):
         # 密度
@@ -485,9 +486,13 @@ def main():
             #    np.savetxt("../data/"+varname[i]+"_{0:0>3}.csv".format(n), vardata[i].T, delimiter = ",")
             n += 1
         t += dt
+        step += 1
     elapsed_time = time.time()-start
     print("elapsed_time: {0} s".format(elapsed_time))
     # 計算終了
+    # 計算失敗の検知
+    if (not np.isfinite(t)):
+        print("Computaion failed: step = {0:3d}".format(step))
     # y = πでの値
     print("   x    rho      p      u      v      w     bx     by     bz    psi")
     for i in range(0, XN, 5):
