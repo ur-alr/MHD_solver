@@ -478,7 +478,7 @@ def main():
         q_n[:, :, 8] = cd*q_n[:, :, 8]
         q = q_n
         # ファイル出力
-        if (np.floor(t*PN/TL) != np.floor((t-dt)*PN/TL)) :
+        if (np.floor(t*PN/TL) != np.floor((t-dt)*PN/TL)):
             print("n: {0:3d}, t: {1:.2f}".format(n, t))
             #varname = ["r", "p", "u", "v", "w", "bx", "by", "bz", "ps"]
             #vardata = [rho, p, u, v, w, bx, by, bz, psi]
@@ -488,7 +488,7 @@ def main():
         t += dt
         step += 1
     elapsed_time = time.time()-start
-    print("elapsed_time: {0} s".format(elapsed_time))
+    print("Elapsed time: {0} s".format(elapsed_time))
     # 計算終了
     # 計算失敗の検知
     if (not np.isfinite(t)):

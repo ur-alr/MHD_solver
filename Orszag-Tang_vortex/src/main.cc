@@ -163,7 +163,7 @@ int main() {
         step++;
     }
     auto elapsed_time = std::chrono::system_clock::now()-start;
-    std::cout << "elapsed_time: " << std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_time).count()/1000.0 << " s\n";
+    std::cout << "Elapsed time: " << std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_time).count()/1000.0 << " s\n";
     // 計算終了
     // 計算失敗の検知
     if (!std::isfinite(t)) {
