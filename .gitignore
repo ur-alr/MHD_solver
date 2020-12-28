@@ -9,6 +9,8 @@ desktop.ini
 # ignore binary files
 a.out
 a.exe
+*.mod
+*.o
 
 # ignore output files
-*csv
+*.csv
