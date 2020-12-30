@@ -14,7 +14,6 @@ maxs = [8.0, 10.0,  1.5,  1.5,  1.0,  3.0,  2.5,  1.0,  0.2]
 mins = [0.0,  0.0, -1.5, -1.5, -1.0, -3.0, -2.5, -1.0, -0.2]
 cols = [cm.jet, cm.jet, cm.BrBG, cm.BrBG, cm.BrBG,
         cm.BrBG, cm.BrBG, cm.BrBG, cm.BrBG]
-data1 = []
 for i in range(VN):
     def animate(n):
         plt.gcf().clear()

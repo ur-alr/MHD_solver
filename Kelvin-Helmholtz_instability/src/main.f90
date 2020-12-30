@@ -35,6 +35,7 @@ program main
     character(64) :: var(VN), dir, name(VN), footer
     real(8), parameter :: alpha = 0.2d0
     ! 初期値
+    ! Matsumoto and Hoshino (2004) および OpenMHD (https://sci.nao.ac.jp/MEMBER/zenitani/openmhd-j.html) の実装を参照
     !$omp parallel do private(i, x, y)
     do j = 4, YN-3
         y = (j-4)*dy-YL/2.0d0
@@ -134,7 +135,7 @@ program main
                 name(k) = trim(dir)//trim(var(k))//trim(footer)
                 open(10+k, file = name(k))
             end do
-            do j = 1, YN
+            do j = 4, YN-3
                 do i = 1, XN-1
                     write(11, '(e12.4, ",")', advance = "no") rho(i, j)
                     write(12, '(e12.4, ",")', advance = "no") p(i, j)
