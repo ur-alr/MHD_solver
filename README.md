@@ -3,8 +3,8 @@
 HLLD近似リーマン解法による磁気流体計算コードです。
 現在以下をサンプルとして収録しています。
 
-- Orszag-Tang渦問題
-- Kelvin-Helmholtz不安定
+- Orszag-Tang渦問題 (Orszag and Tang, 1979)
+- Kelvin-Helmholtz不安定 (Matsumoto and Hoshino, 2004)
 
 計算方法等の詳細は[弊記事](https://qiita.com/ur_kinsk/items/1893602e2ee73060b207)をご覧ください。
 
